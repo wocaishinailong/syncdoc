@@ -3,17 +3,14 @@ import os
 import time
 
 # --- 配置 ---
-CAMERA_DEVICE_INDEX = 21  # UVC摄像头对应的设备索引号，根据您的反馈更新为 21
+CAMERA_DEVICE_INDEX = 0  # UVC摄像头对应的设备索引号，重置为最常见的 0
 
 def main():
     """主函数，用于摄像头捕获、预览和截图。"""
     print("正在尝试初始化摄像头...")
-    # 检查运行环境和设备文件（仅限Linux）
+    # 检查运行环境（仅提示权限）
     if os.name == 'posix':
         print(f"当前用户ID: {os.getuid()} (提示：如果非0，可能需要root权限)")
-        if not os.path.exists(f'/dev/video{CAMERA_DEVICE_INDEX}'):
-            print(f"错误：设备文件 /dev/video{CAMERA_DEVICE_INDEX} 不存在！请检查摄像头连接和驱动。")
-            return
 
     # 初始化摄像头
     cap = cv2.VideoCapture(CAMERA_DEVICE_INDEX)
