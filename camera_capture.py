@@ -3,7 +3,7 @@ import os
 import time
 
 # --- 配置 ---
-CAMERA_DEVICE_INDEX = 1  # UVC摄像头对应的设备索引号，根据手册通常为1
+CAMERA_DEVICE_INDEX = 0  # UVC摄像头对应的设备索引号，我们将其改回 0 尝试
 
 def main():
     """主函数，用于摄像头捕获、预览和截图。"""
